@@ -69,17 +69,16 @@ function create(item) {
   var image = img(item);
 
   exif(item, function(err, obj) {
-    clientExif = err || JSON.stringify(obj, true, 2);
+    if (!err) resize(image, obj);
+    log('exifreader (client) output', err || JSON.stringify(obj, true, 2));
+    wrapper.innerHTML = '';
+    wrapper.appendChild(image);
   })
 
   // fetch exif
-  up(item, function(obj) {
-    resize(image, obj);
-    log('exifreader (client) output', clientExif);
-    log('exiftool (server) output', JSON.stringify(obj, true, 2));
-    wrapper.innerHTML = '';
-    wrapper.appendChild(image);
-  });
+  // up(item, function(obj) {
+
+  // });
 }
 
 /**
