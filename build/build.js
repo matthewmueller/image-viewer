@@ -2896,7 +2896,7 @@ module.exports = function(buf){\n\
   var out = {};\n\
 \n\
   for(var tag in tags) {\n\
-    out[spaces(tag)] = tags[tag].value;\n\
+    out[spaces(tag)] = tags[tag].description;\n\
   }\n\
 \n\
   return out;\n\
