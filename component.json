@@ -13,7 +13,7 @@
     "component/file-picker": "*",
     "matthewmueller/ppi": "*",
     "component/os": "*",
-    "component/exif": "fix-keys",
+    "component/exif": "*",
     "component/file": "*"
   },
   "remotes": []

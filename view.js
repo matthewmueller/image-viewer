@@ -60,25 +60,26 @@ drop(function(e) {
  */
 
 function create(item) {
+  var clientExif;
   if (!item) return;
   logger.innerHTML = '';
-  log('fetching object url for ' + item.name);
+  log('object url', 'fetching for ' + item.name);
 
   // image
   var image = img(item);
 
+  exif(item, function(err, obj) {
+    clientExif = err || JSON.stringify(obj, true, 2);
+  })
+
   // fetch exif
-  up(item, function(exif) {
-    console.log('exiftool', exif);
-    resize(image, exif);
+  up(item, function(obj) {
+    resize(image, obj);
+    log('exifreader (client) output', clientExif);
+    log('exiftool (server) output', JSON.stringify(obj, true, 2));
     wrapper.innerHTML = '';
     wrapper.appendChild(image);
   });
-
-  exif(item, function(err, obj) {
-    if (err) throw err;
-    console.log('exif2', obj);
-  })
 }
 
 /**
@@ -109,16 +110,16 @@ function img(file) {
  */
 
 function resize(img, exif) {
-  log('original size: ' + img.width + ' x ' + img.height);
+  log('original size', img.width + ' x ' + img.height);
 
   var ppi = PPI(exif) || dpr;
-  log('image ppi: ' + ppi);
+  log('image ppi', ppi);
   var ratio = dpr / ppi;
-  log('resize ratio: ' + ratio);
+  log('resize ratio', ratio);
   img.width *= ratio;
   img.height *= ratio;
 
-  log('after resize: ' + img.width + ' x ' + img.height);
+  log('after resize', img.width + ' x ' + img.height);
 }
 
 /**

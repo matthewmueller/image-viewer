@@ -3,10 +3,9 @@
  */
 
 module.exports = function(el) {
-  return function(str) {
+  return function(header, str) {
     var div = document.createElement('div');
-    str = ('-' == str[0]) ? str : '• ' + str;
-    div.textContent = str;
+    div.innerHTML = '<strong>' + header + '</strong>: ' + str;
     el.appendChild(div);
-  };
+  }
 };

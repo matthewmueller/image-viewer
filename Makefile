@@ -1,4 +1,5 @@
-build: components index.js
+build: components index.js package.json
+	@npm install
 	@component build --dev
 
 components: component.json
@@ -10,4 +11,4 @@ clean:
 test:
 	@./node_modules/.bin/mocha
 
-.PHONY: clean test build
+.PHONY: clean test build node_modules
