@@ -1,0 +1,20 @@
+{
+  "name": "image-viewer",
+  "version": "0.0.1",
+  "main": "view.js",
+  "scripts": [
+    "view.js",
+    "logger.js"
+  ],
+  "dependencies": {
+    "component/object-url": "*",
+    "component/upload": "*",
+    "component/drop-anywhere": "*",
+    "component/file-picker": "*",
+    "matthewmueller/ppi": "*",
+    "component/os": "*",
+    "component/exif": "fix-keys",
+    "component/file": "*"
+  },
+  "remotes": []
+}
