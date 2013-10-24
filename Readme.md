@@ -1,6 +1,6 @@
 # Image Viewer
 
-Proportionately size photos based on the pixels per inch (ppi) for optimal viewing on different screen resolutions.
+Proportionately size photos based on the pixels per inch (ppi) for optimal viewing on different screen resolutions. Also has client-side and server-side exif parsing for comparison.
 
 ![image viewer](https://i.cloudup.com/Se8lyQA5ry.png)
 
